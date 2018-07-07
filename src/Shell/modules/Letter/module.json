@@ -1,0 +1,16 @@
+{
+    "name": "Letter",
+    "alias": "letter",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Letter\\Providers\\LetterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
