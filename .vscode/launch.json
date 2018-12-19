@@ -12,14 +12,6 @@
             "pathMappings": {
                 "/var/www/html/Shell":"${workspaceRoot}/src/Shell"
             }
-        },
-        {
-            "name": "Launch currently open script",
-            "type": "php",
-            "request": "launch",
-            "program": "${file}",
-            "cwd": "${fileDirname}",
-            "port": 9000
         }
     ]
 }
