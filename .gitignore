@@ -2,5 +2,5 @@
 /src/Shell/npm-debug.log.*
 /src/Mail/node_modules
 /src/Mail/npm-debug.log.*
-/src/People/node_modules
-/src/People/npm-debug.log.*
+/src/Position/node_modules
+/src/Position/npm-debug.log.*

@@ -17,7 +17,11 @@ class CreateUserRoleTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('role_id')->unsigned();
+            $table->timestamp('created_at')->nullable();
+            $table->string('created_by')->nullable();
+            $table->boolean('deleted')->nullable();
             $table->timestamp('deleted_at')->nullable();
+            $table->string('deleted_by')->nullable();
         });
     }
 

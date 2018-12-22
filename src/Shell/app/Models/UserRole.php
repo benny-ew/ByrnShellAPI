@@ -13,11 +13,11 @@ class UserRole extends ParentModel
     public $timestamps = false;
     
     protected $fillable = [
-        
+        'user_id','role_id'
     ];
 
     protected $hidden = [
-        'deleted_at', 'deleted_by'
+        'created_at','created_by','deleted','deleted_at', 'deleted_by'
     ];
 	public function users()
     {

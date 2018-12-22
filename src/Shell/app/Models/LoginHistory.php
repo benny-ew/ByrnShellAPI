@@ -16,6 +16,11 @@ class LoginHistory extends ParentModel
         'user_id', 'login_at', 'mac_address', 'ip_address'
     ];
 
+    protected $hidden = [
+        'created_at','created_by','deleted','deleted_at', 'deleted_by'
+    ];
+
+
 	public function users()
     {
         return $this->belongsTo('App\Models\User');

@@ -18,7 +18,12 @@ class CreateLoginHistoryTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->timestamp('login_at')->nullable();
             $table->macAddress('mac_address')->nullable();
-            $table->ipAddress('last_ip')->nullable();
+            $table->ipAddress('ip_address')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->string('created_by')->nullable();
+            $table->boolean('deleted')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->string('deleted_by')->nullable();
         });
     }
 

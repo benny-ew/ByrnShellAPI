@@ -15,7 +15,7 @@ class Tree extends ParentModel
     ];
 
     protected $hidden = [
-        'deleted_at', 'deleted_by'
+        'created_at','created_by','deleted','deleted_at', 'deleted_by'
     ];
 
 	public function role()

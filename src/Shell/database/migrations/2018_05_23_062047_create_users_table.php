@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable2 extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -25,6 +25,8 @@ class CreateUsersTable2 extends Migration
             $table->timestamp('registered_at')->nullable();
             $table->string('registered_by')->nullable();
             $table->boolean('deleted')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->string('deleted_by')->nullable();
             $table->timestamp('last_login')->nullable();
