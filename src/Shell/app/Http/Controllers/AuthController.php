@@ -43,6 +43,7 @@ class AuthController extends BaseController
      * @return mixed
      */
     public function authenticate(User $user) {
+        
         $this->validate($this->request, [
             'username'     => 'required',
             'password'  => 'required'
@@ -52,6 +53,12 @@ class AuthController extends BaseController
 
         $user = User::where('username', $this->request->input('username'))->first();
         if (!$user) {
+            return response()->json([
+                'error' => 'Username does not exist.'
+            ], 400);
+        }
+
+        if (!$user->registered){
             return response()->json([
                 'error' => 'Username does not exist.'
             ], 400);

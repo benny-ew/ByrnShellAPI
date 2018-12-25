@@ -20,7 +20,7 @@ class UserPresenter {
         }else{
             
             $this->user->name = $params->name;
-            $this->user->password =  bcrypt($params->password);
+            $this->user->password =  password_hash($params->password,PASSWORD_BCRYPT);
             $this->user->username = $params->username;
             $this->user->email = $params->email;
     

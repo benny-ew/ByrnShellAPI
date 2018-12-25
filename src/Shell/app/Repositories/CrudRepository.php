@@ -57,7 +57,15 @@ abstract class CrudRepository implements ICrudInterface {
 
     public function create($params)
     {
+
         $model = $this->presenter->toModel($params);
+
+        if (isset($params->token)){
+            $token = JWT::decode($params->token, env('JWT_SECRET'),['HS256']);
+            $model->created_by = $token->nam; 
+        }
+        $model->created_at ='NOW()'; 
+
         return $model->save();
     }
 

@@ -18,8 +18,9 @@ class TreePresenter {
         if($params==null){
             return null;
         }else{
-            
             $this->tree->name = $params->name;
+            // $this->tree->created_at = $params->created_at;
+            // $this->tree->created_by = $params->created_by;
             return $this->tree;
             
         }

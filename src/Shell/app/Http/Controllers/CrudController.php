@@ -21,6 +21,7 @@ class CrudController extends BaseController
             return response()->json($validation->messages());
         }else{
             
+            
             $result = $this->repository->create($request);
 
             if ($result>0){

@@ -93,6 +93,11 @@ $router->group(
 		    ['uses' => 'UserRoleController@create']
 		);      
 
+		$router->get(
+		    'user_role/register', 
+		    ['uses' => 'UserRoleController@register']
+		);  
+
         $router->get(
 		    'user_role/read', 
 		    ['uses' => 'UserRoleController@read']
