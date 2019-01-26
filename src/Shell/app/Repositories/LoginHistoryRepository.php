@@ -14,8 +14,8 @@ class LoginHistoryRepository extends CrudRepository implements ILoginHistoryInte
         $this->model = $loginHistoryModel;
     }
 
-    public function setHistory($user_id){
-        //$model = $this->presenter->toModel($params);
+    public function setHistory($params){
+        $model = $this->presenter->toModel($params);
         return $model->save();
     }
 

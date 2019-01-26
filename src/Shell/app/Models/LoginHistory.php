@@ -13,7 +13,7 @@ class LoginHistory extends ParentModel
     public $timestamps = false;
     
     protected $fillable = [
-        'user_id', 'login_at', 'mac_address', 'ip_address'
+        'user_id', 'login_at', 'expiration_date', 'ip_address'
     ];
 
     protected $hidden = [

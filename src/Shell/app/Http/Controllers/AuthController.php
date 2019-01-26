@@ -31,7 +31,7 @@ class AuthController extends BaseController
             'sub' => $user->id, // Subject of the token
             'nam' => $user->username, // Subject of the token
             'iat' => time(), // Time when JWT was issued. 
-            'exp' => time() + 60*60*24*7*52 // Expiration time
+            'exp' => time() +  env('TOKEN_EXPIRATION') // Expiration time
         ];
         
         return JWT::encode($payload, env('JWT_SECRET'));
@@ -66,7 +66,17 @@ class AuthController extends BaseController
 
         if (Hash::check($this->request->input('password'), $user->password)) {
 
-            //$this->loginHistory->setHistory(['user_id'=>$user->id, 'mac_address'=>]);
+
+            $this->loginHistory->setHistory([
+                'user_id'=>$user->id,
+                'login_at'=>'NOW()',
+                'expiration_date'=>date("Y-m-d H:i:s", time() +  env('TOKEN_EXPIRATION')),
+                'ip_address'=>$this->request->ip(),
+                'created_at'=>'NOW()',
+                'created_by'=> $this->request->input('username')
+            ]);
+
+            
 
             return response()->json([
                 'token' => $this->jwt($user)

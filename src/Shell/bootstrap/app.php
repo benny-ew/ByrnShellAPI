@@ -63,9 +63,9 @@ $app->singleton(
 //    App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\AuthMiddleware::class,
@@ -87,11 +87,14 @@ $app->bind('path.public', function() {
    });
 
 $app->configure('modules');
-$app->register(\Nwidart\Modules\LumenModulesServiceProvider::class);
+//$app->register(\Nwidart\Modules\LumenModulesServiceProvider::class);
 //$app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\RepositoryServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
+//$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+
 // $app->register(App\Providers\EventServiceProvider::class);
+
 
 
 /*
