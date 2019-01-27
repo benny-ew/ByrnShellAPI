@@ -23,4 +23,8 @@ class Role extends ParentModel
     {
         return $this->hasMany('App\Models\UserRole');
     }
+
+    public function tree(){
+        return $this->belongsTo('App\Models\Tree');
+    }
 }

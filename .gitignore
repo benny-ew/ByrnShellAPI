@@ -4,3 +4,5 @@
 /src/Mail/npm-debug.log.*
 /src/Position/node_modules
 /src/Position/npm-debug.log.*
+/src/*.log
+

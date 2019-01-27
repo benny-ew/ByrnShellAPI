@@ -23,4 +23,8 @@ class UserRole extends ParentModel
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function roles(){
+        return $this->belongsTo('App\Models\Role');
+    }
 }

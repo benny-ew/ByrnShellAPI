@@ -1,17 +1,19 @@
 <?php 
 namespace App\Http\Controllers;
 
-use Laravel\Lumen\Routing\Controller as BaseController;
+//use Laravel\Lumen\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request as Request;
 use App\Interfaces\IUserInterface;
 use Firebase\JWT\JWT;
 
-class CrudController extends BaseController 
+class CrudController extends Controller 
 {
 
     protected $repository;
     protected $arrayValidation=array();
     protected $operator;
+
 
     public function create(Request $request)
 	{
@@ -20,8 +22,6 @@ class CrudController extends BaseController
         if ( $validation->fails() ) {
             return response()->json($validation->messages());
         }else{
-            
-            
             $result = $this->repository->create($request);
 
             if ($result>0){

@@ -52,6 +52,7 @@ class AuthController extends BaseController
         $ip = $this->request->ip();
 
         $user = User::where('username', $this->request->input('username'))->first();
+
         if (!$user) {
             return response()->json([
                 'error' => 'Username does not exist.'
@@ -66,17 +67,14 @@ class AuthController extends BaseController
 
         if (Hash::check($this->request->input('password'), $user->password)) {
 
-
             $this->loginHistory->setHistory([
                 'user_id'=>$user->id,
                 'login_at'=>'NOW()',
                 'expiration_date'=>date("Y-m-d H:i:s", time() +  env('TOKEN_EXPIRATION')),
-                'ip_address'=>$this->request->ip(),
+                'ip_address'=>$ip,
                 'created_at'=>'NOW()',
                 'created_by'=> $this->request->input('username')
             ]);
-
-            
 
             return response()->json([
                 'token' => $this->jwt($user)
