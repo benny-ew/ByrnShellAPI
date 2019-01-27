@@ -15,9 +15,6 @@ class UserRepository extends CrudRepository implements IUserInterface {
     }
 
     public function checkOldPassword($params){
-        //$id=$params->get('id');
-
-        //$params = new Request(); 
 
         $update['filter']['id'] = $params->get('id');
         $update['type'] = 'ONE';
@@ -42,9 +39,5 @@ class UserRepository extends CrudRepository implements IUserInterface {
         }
     }
     
-    public function login ($params)
-    {
-
-    }
 
 }
